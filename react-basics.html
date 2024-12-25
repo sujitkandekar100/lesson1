@@ -12,8 +12,7 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
     <script type="text/babel">
-      const button = <button>hello</button>;
-      const paragraph = <p>paragraph of text</p>;
+      
 
       const div = (
         <div>
@@ -23,6 +22,8 @@
       );
       const today=dayjs().format('MMMM D');
       const nowTime=dayjs().format('HH:mm:ss');
+      const paragraph=<p>Current Time {nowTime}</p>
+
       const productCost=10+8*2;
       console.log(productCost);
       const shippingCost=5;
@@ -44,7 +45,13 @@
        
 
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(productDetails);
+      /*ReactDOM.createRoot(container).render(productDetails);*/
+      const root=ReactDOM.createRoot(container);
+      root.render(paragraph);
+      setInterval(()=>{
+        const paragraph = <p>Current time: {dayjs().format('HH:mm:ss')}</p>;
+        root.render(paragraph); 
+      },1000)
     </script>
   </body>
 </html>
