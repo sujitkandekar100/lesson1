@@ -4,7 +4,7 @@
     <title>React Basics</title>
   </head>
   <body>
-    <div class="js-container"></div>
+    <div class="js-container container"></div>
 
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
@@ -13,13 +13,14 @@
     <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
     <script type="text/babel">
       
-
-      const div = (
-        <div>
+      const container = document.querySelector('.js-container');
+      const myDiv = 
+        (<div>
           <button>Good job!</button>
           <p>My name is Simon</p>
         </div>
-      );
+        )
+      ReactDOM.createRoot(container).render(myDiv);
       const today=dayjs().format('MMMM D');
       const nowTime=dayjs().format('HH:mm:ss');
       const paragraph=<p>Current Time {nowTime}</p>
@@ -42,12 +43,10 @@
         </div>
       )
      
-       
-
-      const container = document.querySelector('.js-container');
-      /*ReactDOM.createRoot(container).render(productDetails);*/
+     /* ReactDOM.createRoot(container).render(productDetails);
       const root=ReactDOM.createRoot(container);
-      root.render(paragraph);
+      
+      root.render(paragraph);*/
       setInterval(()=>{
         const paragraph = <p>Current time: {dayjs().format('HH:mm:ss')}</p>;
         root.render(paragraph); 
